@@ -1,0 +1,150 @@
+:root {
+    /* Color Palette - Light Industrial Variant */
+    --bg-primary: #ffffff;          /* Clean white canvas */
+    --bg-secondary: #f7f9fa;        /* Light metallic/stone gray for structural backgrounds */
+    --bg-tertiary: #edf0f2;         /* Slightly deeper gray for borders, cards, and dividers */
+    
+    /* Typography Colors */
+    --text-primary: #000000;        /* Deep black for high-contrast titles */
+    --text-secondary: #4a545e;      /* Muted slate gray for readable body copy */
+    
+    /* Brand Accent */
+    --accent-color: #ff6b00;        /* Industrial Engineering Orange */
+    --accent-glow: rgba(255, 107, 0, 0.15);
+    --border-color: #d1d8db;        /* Precision layout grid lines */
+
+    /* Typography Settings */
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', monospace; /* Perfect for spec sheets and technical values */
+
+    /* Typography Scales */
+    --fs-h1: 2.75rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.5rem;
+    --fs-p: 1rem;
+    --lh-body: 1.6;
+    --lh-heading: 1.2;
+
+    /* Universal Motion Patterns */
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Global Reset & Core Canvas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: scroll; /* Forces a single, native browser-level scroll track */
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: var(--lh-body); /* Updated to use your defined body line-height variable */
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Typography Core Bindings --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary); /* FIXED: Changed from --text-main to valid variable */
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+p { 
+    font-size: var(--fs-p); 
+    margin-bottom: 1rem; 
+    color: var(--text-secondary); /* FIXED: Changed from --text-muted to valid variable */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul { 
+    list-style: none; 
+}
+
+/* ==========================================
+   BUTTON ARCHITECTURE (Industrial Utility)
+   ========================================== */
+
+/* Base Button Properties */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 4px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+/* Primary Button: High-visibility Orange Accent */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: #ffffff; /* Stark white text on orange for accessibility */
+}
+
+.btn-primary:hover {
+    background-color: #e05e00; /* Deepened orange value on interaction */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Secondary Button: Clean Structured Wireframe */
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--text-primary); /* Bold black border */
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-primary); /* Inverts cleanly to white text on black background */
+    transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* Optional Layout Utility for Action Groups */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
