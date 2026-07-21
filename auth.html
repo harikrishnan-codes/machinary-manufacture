@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Manufacture</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="./root.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <section class="auth-terminal-section" id="auth-portal">
+        <div class="container">
+
+            <div class="auth-terminal-dock">
+                <!-- Contracting Corner Brackets -->
+                <div class="dock-bracket bracket-tl"></div>
+                <div class="dock-bracket bracket-tr"></div>
+                <div class="dock-bracket bracket-bl"></div>
+                <div class="dock-bracket bracket-br"></div>
+
+                <div class="auth-grid-layout">
+
+                    <!-- Left Column: Authentication Telemetry & Tab Switcher -->
+                    <div class="auth-info-panel" data-aos="fade-right">
+                        <div class="info-system-badge">
+                            <span class="status-ping"></span>
+                            <span class="tag-label font-mono">[ AUTH_GATEWAY // USER_ACCESS ]</span>
+                        </div>
+
+                        <h2 class="auth-headline">SECURE GATEWAY <br><span class="headline-accent">AUTHENTICATION</span>
+                        </h2>
+                        <p class="auth-lead-text">
+                            Authenticate system access keys or initialize new engineer profiles across active
+                            operational nodes.
+                        </p>
+
+                        <!-- Custom Tab Switcher Buttons -->
+                        <div class="auth-tab-navigation">
+                            <button type="button" class="tab-nav-btn active-tab" data-target="signup-panel">
+                                <span class="font-mono">01 //</span> SIGNUP
+                            </button>
+                            <button type="button" class="tab-nav-btn" data-target="login-panel">
+                                <span class="font-mono">02 //</span> LOGIN
+                            </button>
+                            <button type="button" class="tab-nav-btn" data-target="forgot-panel">
+                                <span class="font-mono">03 //</span> RECOVER
+                            </button>
+                        </div>
+
+                        <!-- Alert Feedback Box -->
+                        <div id="global-auth-alert" class="auth-alert-box hidden">
+                            <i class="fas fa-exclamation-triangle alert-icon"></i>
+                            <span id="alert-msg-text" class="font-mono">Alert message placeholder</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Interactive Form Panes -->
+                    <div class="auth-form-panel" data-aos="fade-left">
+
+                        <!-- ---------------- 1. SIGNUP FORM PANE ---------------- -->
+                        <form action="#" class="auth-form-pane active-pane" id="signup-form" novalidate>
+                            <h3 class="pane-title font-mono">INITIALIZE PROFILE</h3>
+
+                            <div class="form-input-wrapper">
+                                <label for="signup-name" class="form-matrix-label font-mono">FULL NAME (ALPHABETS ONLY)
+                                    //</label>
+                                <input type="text" id="signup-name" class="form-technical-input"
+                                    placeholder="e.g. John Doe" required>
+                                <span class="field-error-msg font-mono" id="signup-name-error"></span>
+                            </div>
+
+                            <div class="form-input-wrapper">
+                                <label for="signup-email" class="form-matrix-label font-mono">ENGINEER MAIL ENDPOINT
+                                    //</label>
+                                <input type="email" id="signup-email" class="form-technical-input"
+                                    placeholder="tech@domain.com" required>
+                                <span class="field-error-msg font-mono" id="signup-email-error"></span>
+                            </div>
+
+                            <div class="form-input-wrapper">
+                                <label for="signup-password" class="form-matrix-label font-mono">ACCESS KEY (MIN 8
+                                    CHARS) //</label>
+                                <input type="password" id="signup-password" class="form-technical-input"
+                                    placeholder="••••••••" required>
+                                <span class="field-error-msg font-mono" id="signup-password-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit-btn">
+                                <span>REGISTER PROFILE</span>
+                                <i class="fas fa-arrow-right-long button-icon"></i>
+                            </button>
+                        </form>
+
+                        <!-- ---------------- 2. LOGIN FORM PANE ---------------- -->
+                        <form action="#" class="auth-form-pane" id="login-form" novalidate>
+                            <h3 class="pane-title font-mono">TERMINAL LOGIN</h3>
+
+                            <!-- Custom Role Selector (No Select Tags) -->
+                            <div class="form-group-block">
+                                <label class="form-matrix-label font-mono">SELECT ACCESS ROLE //</label>
+                                <input type="hidden" name="user_role" id="active-user-role" value="admin">
+
+                                <div class="custom-selection-matrix">
+                                    <div class="custom-method-option active-method" data-role="admin">
+                                        <span class="option-index font-mono">ADM</span>
+                                        <div class="option-meta">
+                                            <span class="option-title">Admin Dashboard</span>
+                                            <span class="option-sub">Full System Privileges</span>
+                                        </div>
+                                    </div>
+                                    <div class="custom-method-option" data-role="client">
+                                        <span class="option-index font-mono">CLI</span>
+                                        <div class="option-meta">
+                                            <span class="option-title">Client Dashboard</span>
+                                            <span class="option-sub">Standard Monitoring Hub</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-input-wrapper">
+                                <label for="login-email" class="form-matrix-label font-mono">MAIL ENDPOINT //</label>
+                                <input type="email" id="login-email" class="form-technical-input"
+                                    placeholder="tech@domain.com" required>
+                                <span class="field-error-msg font-mono" id="login-email-error"></span>
+                            </div>
+
+                            <div class="form-input-wrapper">
+                                <label for="login-password" class="form-matrix-label font-mono">ACCESS KEY //</label>
+                                <input type="password" id="login-password" class="form-technical-input"
+                                    placeholder="••••••••" required>
+                                <span class="field-error-msg font-mono" id="login-password-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit-btn">
+                                <span>AUTHENTICATE & ENTER</span>
+                                <i class="fas fa-arrow-right-long button-icon"></i>
+                            </button>
+                        </form>
+
+                        <!-- ---------------- 3. FORGOT PASSWORD PANE ---------------- -->
+                        <form action="#" class="auth-form-pane" id="forgot-form" novalidate>
+                            <h3 class="pane-title font-mono">RECOVER ACCESS KEY</h3>
+                            <p class="pane-subtitle">Enter your registered engineer email to broadcast a secure key
+                                reset link.</p>
+
+                            <div class="form-input-wrapper">
+                                <label for="forgot-email" class="form-matrix-label font-mono">REGISTERED MAIL ENDPOINT
+                                    //</label>
+                                <input type="email" id="forgot-email" class="form-technical-input"
+                                    placeholder="tech@domain.com" required>
+                                <span class="field-error-msg font-mono" id="forgot-email-error"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary form-submit-btn">
+                                <span>BROADCAST RESET LINK</span>
+                                <i class="fas fa-paper-plane button-icon"></i>
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                once: true,
+                offset: 120
+            });
+        });
+    </script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Read the email used during login
+            const loggedInEmail = localStorage.getItem("user_login_email");
+            const loggedInRole = localStorage.getItem("user_login_role");
+
+            // Target the email display tag in your topbar
+            const displayEmailTag = document.getElementById("display-user-email");
+
+            if (loggedInEmail && displayEmailTag) {
+                displayEmailTag.textContent = loggedInEmail;
+            } else if (displayEmailTag) {
+                // Fallback if accessed directly without login
+                displayEmailTag.textContent = "guest@domain.lan";
+            }
+
+            // Handle Logout: clear session data when logging out
+            const logoutBtn = document.getElementById("logout-btn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function () {
+                    localStorage.removeItem("user_login_email");
+                    localStorage.removeItem("user_login_role");
+                });
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Tab Elements
+            const tabBtns = document.querySelectorAll(".tab-nav-btn");
+            const formPanes = document.querySelectorAll(".auth-form-pane");
+
+            // Custom Role Selection Elements
+            const roleOptions = document.querySelectorAll(".custom-method-option");
+            const activeRoleInput = document.getElementById("active-user-role");
+
+            // Global Alert Display Box
+            const alertBox = document.getElementById("global-auth-alert");
+            const alertText = document.getElementById("alert-msg-text");
+
+            function showAlert(message, isSuccess = false) {
+                alertText.textContent = message;
+                alertBox.classList.remove("hidden", "success-alert");
+                if (isSuccess) alertBox.classList.add("success-alert");
+            }
+
+            function clearAlert() {
+                alertBox.classList.add("hidden");
+            }
+
+            // 1. Tab Navigation Logic
+            tabBtns.forEach(btn => {
+                btn.addEventListener("click", function () {
+                    clearAlert();
+                    const target = this.getAttribute("data-target");
+
+                    tabBtns.forEach(b => b.classList.remove("active-tab"));
+                    formPanes.forEach(p => p.classList.remove("active-pane"));
+
+                    this.classList.add("active-tab");
+
+                    if (target === "signup-panel") document.getElementById("signup-form").classList.add("active-pane");
+                    if (target === "login-panel") document.getElementById("login-form").classList.add("active-pane");
+                    if (target === "forgot-panel") document.getElementById("forgot-form").classList.add("active-pane");
+                });
+            });
+
+            // 2. Custom Role Switcher (No Select Options)
+            roleOptions.forEach(option => {
+                option.addEventListener("click", function () {
+                    roleOptions.forEach(opt => opt.classList.remove("active-method"));
+                    this.classList.add("active-method");
+                    activeRoleInput.value = this.getAttribute("data-role");
+                });
+            });
+
+            // 3. Helper Regex Validation Functions
+            const isPureAlphabets = name => /^[A-Za-z\s]+$/.test(name);
+            const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+            // Dynamic Alpha Filtering on Name Field Keypress
+            const nameInput = document.getElementById("signup-name");
+            nameInput.addEventListener("input", function () {
+                this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+            });
+
+            // 4. Signup Form Handler
+            document.getElementById("signup-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                clearAlert();
+
+                const name = nameInput.value.trim();
+                const email = document.getElementById("signup-email").value.trim();
+                const password = document.getElementById("signup-password").value;
+
+                let hasError = false;
+
+                if (!name || !isPureAlphabets(name)) {
+                    document.getElementById("signup-name-error").textContent = "Name must contain alphabets only.";
+                    hasError = true;
+                } else {
+                    document.getElementById("signup-name-error").textContent = "";
+                }
+
+                if (!isValidEmail(email)) {
+                    document.getElementById("signup-email-error").textContent = "Invalid email format.";
+                    hasError = true;
+                } else {
+                    document.getElementById("signup-email-error").textContent = "";
+                }
+
+                if (password.length < 8) {
+                    document.getElementById("signup-password-error").textContent = "Password must be at least 8 characters.";
+                    hasError = true;
+                } else {
+                    document.getElementById("signup-password-error").textContent = "";
+                }
+
+                if (hasError) {
+                    showAlert("Signup failed. Fix input errors above.");
+                    return;
+                }
+
+                // Redirect to Login Tab on Valid Signup
+                showAlert("Profile registered! Switching to Login...", true);
+                setTimeout(() => {
+                    document.querySelector('[data-target="login-panel"]').click();
+                }, 1200);
+            });
+
+            // 5. Login Form Handler with Dynamic Dashboard Redirection
+            document.getElementById("login-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                clearAlert();
+
+                const email = document.getElementById("login-email").value.trim();
+                const password = document.getElementById("login-password").value;
+                const role = activeRoleInput.value;
+
+                let hasError = false;
+
+                if (!isValidEmail(email)) {
+                    document.getElementById("login-email-error").textContent = "Enter a valid email address.";
+                    hasError = true;
+                } else {
+                    document.getElementById("login-email-error").textContent = "";
+                }
+
+                if (password.length < 8) {
+                    document.getElementById("login-password-error").textContent = "Password must be at least 8 characters.";
+                    hasError = true;
+                } else {
+                    document.getElementById("login-password-error").textContent = "";
+                }
+
+                if (hasError) {
+                    showAlert("Authentication failed. Check your parameters.");
+                    return;
+                }
+
+                // ✅ SAVE EMAIL & ROLE TO BROWSER STORAGE FOR RBAC DASHBOARD DISPLAY
+                localStorage.setItem("user_login_email", email);
+                localStorage.setItem("user_login_role", role);
+
+                showAlert(`Access granted as [${role.toUpperCase()}]. Redirecting...`, true);
+
+                // Dynamic Role-based Redirection
+                setTimeout(() => {
+                    if (role === "admin") {
+                        window.location.href = "admin.html";
+                    } else {
+                        window.location.href = "client.html";
+                    }
+                }, 1200);
+            });
+
+            // 6. Forgot Password Form Handler (Redirects to error.html)
+            document.getElementById("forgot-form").addEventListener("submit", function (e) {
+                e.preventDefault();
+                clearAlert();
+
+                const email = document.getElementById("forgot-email").value.trim();
+
+                if (!isValidEmail(email)) {
+                    document.getElementById("forgot-email-error").textContent = "Enter a valid registered email.";
+                    showAlert("Invalid email endpoint specified.");
+                    return;
+                }
+
+                document.getElementById("forgot-email-error").textContent = "";
+                showAlert("Verification complete. Redirecting...", true);
+
+                // Redirect to your existing error.html page after validation
+                setTimeout(() => {
+                    window.location.href = "error.html";
+                }, 1200);
+            });
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

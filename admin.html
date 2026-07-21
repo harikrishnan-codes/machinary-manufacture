@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Manufacture</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="./root.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <div class="admin-dashboard-wrapper">
+
+        <!-- Top Bar Navigation Header -->
+        <header class="admin-topbar">
+            <div class="topbar-left">
+                <button class="hamburger-toggle-btn" id="sidebar-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="topbar-brand">
+                    <span class="status-ping"></span>
+                    <img src="./assets/orange.webp" alt="logo" width="150px" height="50px">
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="user-profile-badge font-mono">
+                    <span class="role-tag">ROLE: ADMIN</span>
+                    <!-- Dynamic email will be injected here -->
+                    <span class="user-email" id="display-user-email">loading...</span>
+                </div>
+                <a href="index.html" class="btn btn-secondary topbar-logout-btn font-mono" id="logout-btn">LOGOUT</a>
+            </div>
+        </header>
+
+        <div class="admin-main-container">
+
+            <!-- Slide-Out Sidebar Navigation -->
+            <aside class="admin-sidebar" id="admin-sidebar">
+                <div class="sidebar-header font-mono">
+                    <span>ADMIN_PANEL</span>
+                    <button class="sidebar-close-btn" id="sidebar-close">&times;</button>
+                </div>
+                <nav class="sidebar-nav-menu">
+                    <a href="#" class="nav-item active font-mono" data-target="overview-section">
+                        <i class="fas fa-chart-line nav-icon"></i> Overview Matrix
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="users-section">
+                        <i class="fas fa-users-gear nav-icon"></i> User Control
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="nodes-section">
+                        <i class="fas fa-network-wired nav-icon"></i> Node Gateways
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="logs-section">
+                        <i class="fas fa-terminal nav-icon"></i> Telemetry Logs
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="settings-section">
+                        <i class="fas fa-sliders nav-icon"></i> System Config
+                    </a>
+                </nav>
+                <div class="sidebar-footer font-mono">
+                    <span>SYS_VER // 8.4.2</span>
+                </div>
+            </aside>
+
+            <!-- Sidebar Backdrop for mobile -->
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+            <!-- Dashboard Content Body -->
+            <main class="admin-content-body">
+
+                <!-- ---------------- SECTION 1: OVERVIEW MATRIX ---------------- -->
+                <section class="dashboard-panel-section active-panel" id="overview-section">
+                    <div class="content-header">
+                        <h1 class="page-title">SYSTEM OVERVIEW <span class="accent-text">// METRICS</span></h1>
+                        <span class="last-sync font-mono">LAST SYNC: 0.002ms AGO</span>
+                    </div>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="card-label font-mono">TOTAL USERS</span>
+                            <div class="card-value font-mono">1,482</div>
+                            <span class="card-status positive font-mono">+12% THIS WEEK</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label font-mono">ACTIVE GATEWAYS</span>
+                            <div class="card-value font-mono">24 / 24</div>
+                            <span class="card-status positive font-mono">100% OPERATIONAL</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label font-mono">SYS LATENCY</span>
+                            <div class="card-value font-mono">&lt; 0.85μs</div>
+                            <span class="card-status positive font-mono">STABLE ENVELOPE</span>
+                        </div>
+                    </div>
+
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>LIVE SYSTEM LOGS</span>
+                            <span class="status-pill secure">ENCRYPTED</span>
+                        </div>
+
+                        <div class="table-responsive-wrapper">
+                            <table class="telemetry-table">
+                                <thead>
+                                    <tr class="font-mono">
+                                        <th>TIME</th>
+                                        <th>NODE ID</th>
+                                        <th>EVENT TYPE</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-mono">12:04:12</td>
+                                        <td class="font-mono">NODE_US_EAST</td>
+                                        <td>Key Handshake Validated</td>
+                                        <td><span class="badge-status active font-mono">SUCCESS</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-mono">12:02:45</td>
+                                        <td class="font-mono">NODE_EU_WEST</td>
+                                        <td>EtherCAT Sync Complete</td>
+                                        <td><span class="badge-status active font-mono">SUCCESS</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-mono">11:58:02</td>
+                                        <td class="font-mono">NODE_AS_SOUTH</td>
+                                        <td>Latency Probe Ping</td>
+                                        <td><span class="badge-status warning font-mono">QUEUED</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 2: USER CONTROL ---------------- -->
+                <section class="dashboard-panel-section" id="users-section">
+                    <div class="content-header">
+                        <h1 class="page-title">USER CONTROL <span class="accent-text">// MANAGEMENT</span></h1>
+                        <span class="last-sync font-mono">REGISTERED ACCOUNTS: 1,482</span>
+                    </div>
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>ACTIVE SYSTEM ENGINEERS</span>
+                            <span class="status-pill secure">RBAC_ENABLED</span>
+                        </div>
+                        <div class="table-responsive-wrapper">
+                            <table class="telemetry-table">
+                                <thead>
+                                    <tr class="font-mono">
+                                        <th>USER EMAIL</th>
+                                        <th>ROLE</th>
+                                        <th>LAST LOGIN</th>
+                                        <th>STATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-mono">admin@domain.lan</td>
+                                        <td><span class="role-tag font-mono">ADMIN</span></td>
+                                        <td class="font-mono">NOW</td>
+                                        <td><span class="badge-status active font-mono">ACTIVE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-mono">client@domain.lan</td>
+                                        <td><span class="role-tag font-mono" style="color:#3b82f6;">CLIENT</span></td>
+                                        <td class="font-mono">2 HRS AGO</td>
+                                        <td><span class="badge-status active font-mono">ACTIVE</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 3: NODE GATEWAYS ---------------- -->
+                <section class="dashboard-panel-section" id="nodes-section">
+                    <div class="content-header">
+                        <h1 class="page-title">NODE GATEWAYS <span class="accent-text">// STATUS</span></h1>
+                        <span class="last-sync font-mono">ACTIVE NODES: 24</span>
+                    </div>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="card-label font-mono">NODE_US_EAST</span>
+                            <div class="card-value font-mono">10.240.4.1</div>
+                            <span class="card-status positive font-mono">10 Gbps // ONLINE</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label font-mono">NODE_EU_WEST</span>
+                            <div class="card-value font-mono">10.112.8.4</div>
+                            <span class="card-status positive font-mono">5 Gbps // ONLINE</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 4: TELEMETRY LOGS ---------------- -->
+                <section class="dashboard-panel-section" id="logs-section">
+                    <div class="content-header">
+                        <h1 class="page-title">TELEMETRY LOGS <span class="accent-text">// REALTIME_STREAM</span></h1>
+                        <div class="header-status-group font-mono">
+                            <span class="buffer-indicator"><span class="ping-dot"></span> BUFFER: 100%</span>
+                            <span class="last-sync">REFRESH: 10ms</span>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Console Card -->
+                    <div class="telemetry-console-card">
+
+                        <!-- Terminal Header Toolbar -->
+                        <div class="console-toolbar">
+                            <div class="toolbar-left">
+                                <span class="terminal-dots">
+                                    <span class="dot red"></span>
+                                    <span class="dot yellow"></span>
+                                    <span class="dot green"></span>
+                                </span>
+                                <span class="console-title font-mono">TERMINAL_STREAM_V8.4 // LOG_MONITOR</span>
+                            </div>
+
+                            <div class="toolbar-right">
+                                <input type="text" class="console-filter-input font-mono"
+                                    placeholder="Filter logs (e.g. ERR, BUS)...">
+                                <span class="live-badge font-mono"><i class="fas fa-circle"></i> LIVE</span>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Output Stream Box -->
+                        <div class="console-output-stream font-mono">
+
+                            <div class="log-entry info-level">
+                                <span class="log-timestamp">[12:04:12.804]</span>
+                                <span class="log-tag tag-ok">SYS_OK</span>
+                                <span class="log-source">NODE_US_EAST //</span>
+                                <span class="log-msg">Synchronous master clock running nominal. Jitter delta:
+                                    0.02μs.</span>
+                            </div>
+
+                            <div class="log-entry info-level">
+                                <span class="log-timestamp">[12:03:55.112]</span>
+                                <span class="log-tag tag-ok">SYS_OK</span>
+                                <span class="log-source">AUTH_GATEWAY //</span>
+                                <span class="log-msg">TLS 1.3 handshake verified on secure port 443 [RSA-4096].</span>
+                            </div>
+
+                            <div class="log-entry warn-level">
+                                <span class="log-timestamp">[12:02:45.930]</span>
+                                <span class="log-tag tag-warn">WARN</span>
+                                <span class="log-source">NODE_AS_SOUTH //</span>
+                                <span class="log-msg">Fieldbus cycle delay detected (+0.42μs). Re-calibrating phase
+                                    offset.</span>
+                            </div>
+
+                            <div class="log-entry info-level">
+                                <span class="log-timestamp">[12:01:10.004]</span>
+                                <span class="log-tag tag-ok">SYS_OK</span>
+                                <span class="log-source">DB_CLUSTER //</span>
+                                <span class="log-msg">Incremental snapshot backup committed to vault node [HASH:
+                                    #4f88a].</span>
+                            </div>
+
+                            <div class="log-entry error-level">
+                                <span class="log-timestamp">[11:59:33.421]</span>
+                                <span class="log-tag tag-err">CRIT</span>
+                                <span class="log-source">NODE_EU_WEST //</span>
+                                <span class="log-msg">Transient drop on fiber channel 02. Rerouting via fallback loop
+                                    B.</span>
+                            </div>
+
+                            <div class="log-entry info-level">
+                                <span class="log-timestamp">[11:58:02.155]</span>
+                                <span class="log-tag tag-ok">SYS_OK</span>
+                                <span class="log-source">RBAC_ENGINE //</span>
+                                <span class="log-msg">Token permissions updated for active session
+                                    admin@domain.lan.</span>
+                            </div>
+
+                            <div class="log-entry info-level">
+                                <span class="log-timestamp">[11:55:40.890]</span>
+                                <span class="log-tag tag-ok">SYS_OK</span>
+                                <span class="log-source">CODESYS_RUNTIME //</span>
+                                <span class="log-msg">EtherCAT master state transitioned to OPERATIONAL (OP).</span>
+                            </div>
+
+                        </div>
+
+                        <!-- Terminal Footer Telemetry -->
+                        <div class="console-footer font-mono">
+                            <span>PACKETS: 48,291 PROCESSED</span>
+                            <span>DROPPED: 0</span>
+                            <span class="auto-scroll-toggle"><i class="fas fa-arrow-down"></i> AUTO_SCROLL: ON</span>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 5: SYSTEM CONFIG ---------------- -->
+                <section class="dashboard-panel-section" id="settings-section">
+                    <div class="content-header">
+                        <h1 class="page-title">SYSTEM CONFIG <span class="accent-text">// SETTINGS</span></h1>
+                    </div>
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>GLOBAL VARIABLE PARAMETERS</span>
+                        </div>
+                        <p class="font-mono" style="color: var(--text-secondary);">System theme: Dark Mode (Industrial
+                            Orange Accent)</p>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                once: true,
+                offset: 120
+            });
+        });
+    </script>
+
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Dynamic Login Email Integration (RBAC)
+    const displayEmailElem = document.getElementById("display-user-email");
+    const loggedInUserEmail = localStorage.getItem("user_login_email");
+
+    if (displayEmailElem) {
+        if (loggedInUserEmail && loggedInUserEmail.trim() !== "") {
+            displayEmailElem.textContent = loggedInUserEmail;
+        } else {
+            displayEmailElem.textContent = "admin@domain.lan"; // Fallback if direct access
+        }
+    }
+
+    // 2. Clear Session on Logout
+    const logoutBtn = document.getElementById("logout-btn");
+    if (logoutBtn) {
+        logoutBtn.addEventListener("click", function () {
+            localStorage.removeItem("user_login_email");
+            localStorage.removeItem("user_login_role");
+        });
+    }
+
+    // 3. Dynamic Navlink Content Switching
+    const navItems = document.querySelectorAll(".sidebar-nav-menu .nav-item");
+    const panelSections = document.querySelectorAll(".dashboard-panel-section");
+
+    navItems.forEach(item => {
+        item.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetSectionId = this.getAttribute("data-target");
+
+            navItems.forEach(nav => nav.classList.remove("active"));
+            panelSections.forEach(panel => panel.classList.remove("active-panel"));
+
+            this.classList.add("active");
+            const targetPanel = document.getElementById(targetSectionId);
+            if (targetPanel) {
+                targetPanel.classList.add("active-panel");
+            }
+
+            if (window.innerWidth <= 768) {
+                closeSidebar();
+            }
+        });
+    });
+
+    // 4. Hamburger Drawer Mobile Navigation Logic
+    const sidebar = document.getElementById("admin-sidebar");
+    const toggleBtn = document.getElementById("sidebar-toggle");
+    const closeBtn = document.getElementById("sidebar-close");
+    const overlay = document.getElementById("sidebar-overlay");
+
+    function openSidebar() {
+        if (sidebar && overlay) {
+            sidebar.classList.add("sidebar-open");
+            overlay.classList.add("overlay-active");
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    function closeSidebar() {
+        if (sidebar && overlay) {
+            sidebar.classList.remove("sidebar-open");
+            overlay.classList.remove("overlay-active");
+            document.body.style.overflow = "auto";
+        }
+    }
+
+    if (toggleBtn) toggleBtn.addEventListener("click", openSidebar);
+    if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+    if (overlay) overlay.addEventListener("click", closeSidebar);
+});
+    </script>
+
+</body>
+
+</html>

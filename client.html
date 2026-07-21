@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machinery Manufacture</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="client.css">
+    <link rel="stylesheet" href="./root.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <div class="client-dashboard-wrapper">
+
+        <!-- Top Bar Navigation Header -->
+        <header class="client-topbar">
+            <div class="topbar-left">
+                <!-- Mobile Hamburger Toggle Button -->
+                <button class="hamburger-toggle-btn" id="sidebar-toggle" aria-label="Toggle Navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="topbar-brand">
+                    <span class="status-ping"></span>
+                    <img src="./assets/orange.webp" alt="logo" width="150px" height="50px">
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <!-- In client.html line ~27 -->
+                <div class="user-profile-badge font-mono">
+                    <span class="role-tag" style="color:#3b82f6;">ROLE: CLIENT</span>
+                    <span class="user-email" id="display-user-email">loading...</span>
+                </div>
+                <a href="login.html" class="btn btn-secondary topbar-logout-btn font-mono" id="logout-btn">LOGOUT</a>
+            </div>
+        </header>
+
+        <div class="client-main-container">
+
+            <!-- Slide-Out Sidebar Navigation -->
+            <aside class="client-sidebar" id="client-sidebar">
+                <div class="sidebar-header font-mono">
+                    <span>CLIENT_PANEL</span>
+                    <button class="sidebar-close-btn" id="sidebar-close">&times;</button>
+                </div>
+                <nav class="sidebar-nav-menu">
+                    <a href="#" class="nav-item active font-mono" data-target="overview-section">
+                        <i class="fas fa-chart-pie nav-icon"></i> Usage Overview
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="billing-section">
+                        <i class="fas fa-credit-card nav-icon"></i> Subscription & Billing
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="keys-section">
+                        <i class="fas fa-key nav-icon"></i> API Access Keys
+                    </a>
+                    <a href="#" class="nav-item font-mono" data-target="tickets-section">
+                        <i class="fas fa-headset nav-icon"></i> Support Tickets
+                    </a>
+                </nav>
+                <div class="sidebar-footer font-mono">
+                    <span>TIER // ENTERPRISE_PRO</span>
+                </div>
+            </aside>
+
+            <!-- Sidebar Overlay (Backdrop for Mobile) -->
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+            <!-- Dashboard Content Body -->
+            <main class="client-content-body">
+
+                <!-- ---------------- SECTION 1: USAGE OVERVIEW ---------------- -->
+                <section class="dashboard-panel-section active-panel" id="overview-section">
+                    <div class="content-header">
+                        <h1 class="page-title">CLIENT OVERVIEW <span class="accent-text">// SERVICE_METRICS</span></h1>
+                        <span class="last-sync font-mono">BILLING CYCLE: 12 DAYS REMAINING</span>
+                    </div>
+
+                    <!-- Stat Cards -->
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <span class="card-label font-mono">API REQUESTS THIS MONTH</span>
+                            <div class="card-value font-mono">842,109</div>
+                            <span class="card-status positive font-mono">84% OF MONTHLY QUOTA</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label font-mono">ACTIVE GATEWAY ENDPOINTS</span>
+                            <div class="card-value font-mono">03 / 05</div>
+                            <span class="card-status positive font-mono">NODE_US & EU ONLINE</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="card-label font-mono">AVG RESPONSE LATENCY</span>
+                            <div class="card-value font-mono">1.2ms</div>
+                            <span class="card-status positive font-mono">SLA TARGET &lt; 5ms</span>
+                        </div>
+                    </div>
+
+                    <!-- Compact Hardware Diagnostic Strip -->
+                    <div class="diagnostic-strip-card">
+                        <div class="card-header font-mono">
+                            <span>SERVICE ALLOCATION GAUGES</span>
+                            <span class="status-pill secure">SLA: 99.99%</span>
+                        </div>
+
+                        <div class="diagnostic-grid">
+                            <div class="diag-metric-item font-mono">
+                                <div class="diag-meta">
+                                    <span class="diag-label">MONTHLY_BANDWIDTH //</span>
+                                    <span class="diag-value">4.2 TB / 5 TB</span>
+                                </div>
+                                <div class="diag-progress-track">
+                                    <div class="diag-progress-bar" style="width: 84%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="diag-metric-item font-mono">
+                                <div class="diag-meta">
+                                    <span class="diag-label">API_BURST_RATE //</span>
+                                    <span class="diag-value">120 / 200 REQ/SEC</span>
+                                </div>
+                                <div class="diag-progress-track">
+                                    <div class="diag-progress-bar" style="width: 60%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 2: SUBSCRIPTION & BILLING ---------------- -->
+                <section class="dashboard-panel-section" id="billing-section">
+                    <div class="content-header">
+                        <h1 class="page-title">SUBSCRIPTION <span class="accent-text">// BILLING</span></h1>
+                    </div>
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>ACTIVE PLAN: ENTERPRISE TIER</span>
+                            <span class="status-pill secure">STATUS: AUTO_RENEW</span>
+                        </div>
+                        <p class="font-mono" style="color: var(--text-secondary); margin-bottom: 20px;">
+                            Renewal Date: August 1, 2026 // Payment Method: Visa ending in 4092
+                        </p>
+                        <div class="table-responsive-wrapper">
+                            <table class="telemetry-table">
+                                <thead>
+                                    <tr class="font-mono">
+                                        <th>INVOICE ID</th>
+                                        <th>DATE</th>
+                                        <th>AMOUNT</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-mono">#INV-2026-06</td>
+                                        <td class="font-mono">01 JUL 2026</td>
+                                        <td class="font-mono">$499.00</td>
+                                        <td><span class="badge-status active font-mono">PAID</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-mono">#INV-2026-05</td>
+                                        <td class="font-mono">01 JUN 2026</td>
+                                        <td class="font-mono">$499.00</td>
+                                        <td><span class="badge-status active font-mono">PAID</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 3: API ACCESS KEYS ---------------- -->
+                <section class="dashboard-panel-section" id="keys-section">
+                    <div class="content-header">
+                        <h1 class="page-title">API ACCESS <span class="accent-text">// SECURITY_KEYS</span></h1>
+                    </div>
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>LIVE CREDENTIALS</span>
+                        </div>
+                        <div class="table-responsive-wrapper">
+                            <table class="telemetry-table">
+                                <thead>
+                                    <tr class="font-mono">
+                                        <th>KEY NAME</th>
+                                        <th>TOKEN KEY</th>
+                                        <th>CREATED</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-mono">PRODUCTION_KEY_01</td>
+                                        <td class="font-mono">sk_live_9921••••••••4219</td>
+                                        <td class="font-mono">10 JAN 2026</td>
+                                        <td><span class="badge-status warning font-mono"
+                                                style="cursor:pointer;">REVOKE</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ---------------- SECTION 4: SUPPORT TICKETS ---------------- -->
+                <section class="dashboard-panel-section" id="tickets-section">
+                    <div class="content-header">
+                        <h1 class="page-title">SUPPORT <span class="accent-text">// DISPATCH_TICKETS</span></h1>
+                    </div>
+                    <div class="telemetry-table-card">
+                        <div class="card-header font-mono">
+                            <span>RECENT INQUIRIES</span>
+                        </div>
+                        <div class="table-responsive-wrapper">
+                            <table class="telemetry-table">
+                                <thead>
+                                    <tr class="font-mono">
+                                        <th>TICKET ID</th>
+                                        <th>SUBJECT</th>
+                                        <th>UPDATED</th>
+                                        <th>STATUS</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-mono">#TCK-8821</td>
+                                        <td>Latency Probe Adjustment Request</td>
+                                        <td class="font-mono">2 HRS AGO</td>
+                                        <td><span class="badge-status active font-mono">RESOLVED</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-mono">#TCK-8902</td>
+                                        <td>Additional Bandwidth Quota Allocation</td>
+                                        <td class="font-mono">JUST NOW</td>
+                                        <td><span class="badge-status warning font-mono">OPEN</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                duration: 800,
+                easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                once: true,
+                offset: 120
+            });
+        });
+    </script>
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // 1. Dynamic Login Email Integration (RBAC)
+            const displayEmailElem = document.getElementById("display-user-email");
+            const loggedInUserEmail = localStorage.getItem("user_login_email");
+
+            if (displayEmailElem) {
+                if (loggedInUserEmail && loggedInUserEmail.trim() !== "") {
+                    displayEmailElem.textContent = loggedInUserEmail;
+                } else {
+                    displayEmailElem.textContent = "client@domain.lan"; // Fallback if direct access
+                }
+            }
+
+            // 2. Clear Session on Logout
+            const logoutBtn = document.getElementById("logout-btn");
+            if (logoutBtn) {
+                logoutBtn.addEventListener("click", function () {
+                    localStorage.removeItem("user_login_email");
+                    localStorage.removeItem("user_login_role");
+                });
+            }
+
+            // 3. Dynamic Navlink Content Switching
+            const navItems = document.querySelectorAll(".sidebar-nav-menu .nav-item");
+            const panelSections = document.querySelectorAll(".dashboard-panel-section");
+
+            navItems.forEach(item => {
+                item.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const targetSectionId = this.getAttribute("data-target");
+
+                    navItems.forEach(nav => nav.classList.remove("active"));
+                    panelSections.forEach(panel => panel.classList.remove("active-panel"));
+
+                    this.classList.add("active");
+                    const targetPanel = document.getElementById(targetSectionId);
+                    if (targetPanel) {
+                        targetPanel.classList.add("active-panel");
+                    }
+
+                    if (window.innerWidth <= 768) {
+                        closeSidebar();
+                    }
+                });
+            });
+
+            // 4. Hamburger Drawer Mobile Navigation Logic
+            const sidebar = document.getElementById("client-sidebar");
+            const toggleBtn = document.getElementById("sidebar-toggle");
+            const closeBtn = document.getElementById("sidebar-close");
+            const overlay = document.getElementById("sidebar-overlay");
+
+            function openSidebar() {
+                if (sidebar && overlay) {
+                    sidebar.classList.add("sidebar-open");
+                    overlay.classList.add("overlay-active");
+                    document.body.style.overflow = "hidden";
+                }
+            }
+
+            function closeSidebar() {
+                if (sidebar && overlay) {
+                    sidebar.classList.remove("sidebar-open");
+                    overlay.classList.remove("overlay-active");
+                    document.body.style.overflow = "auto";
+                }
+            }
+
+            if (toggleBtn) toggleBtn.addEventListener("click", openSidebar);
+            if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+            if (overlay) overlay.addEventListener("click", closeSidebar);
+        });
+
+    </script>
+
+
+</body>
+
+</html>

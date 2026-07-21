@@ -1,0 +1,942 @@
+/* -------------------------------------------------------------
+   FIXED ADMIN DASHBOARD DARK THEME & RESPONSIVE ENGINE
+------------------------------------------------------------- */
+
+/* Root Structural Overrides */
+body {
+    background-color: var(--bg-primary, #0b0d0f) !important;
+    color: var(--text-primary, #f5f6f7);
+    margin: 0;
+    padding: 0;
+}
+
+.admin-dashboard-wrapper {
+    background-color: var(--bg-primary, #0b0d0f) !important;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 💻 Header Navigation */
+.admin-topbar {
+    height: 64px;
+    background-color: #080a0c;
+    border-bottom: 1px solid var(--border-color, #1c2126);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.status-ping {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color, #ff6b00);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--accent-color, #ff6b00);
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-profile-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 11px;
+}
+
+.role-tag {
+    color: var(--accent-color, #ff6b00);
+    font-weight: 700;
+}
+
+.user-email {
+    color: var(--text-secondary, #98a2b3);
+}
+
+.topbar-logout-btn {
+    padding: 6px 14px !important;
+    font-size: 11px !important;
+    
+    /* Force full visibility & display at all times */
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    
+    /* Primary outline styles (Visible by default) */
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid var(--border-color, #1c2126) !important;
+    transition: var(--transition-smooth, all 0.3s ease);
+}
+
+.topbar-logout-btn:hover {
+    background-color: var(--accent-color, #ff6b00) !important;
+    border-color: var(--accent-color, #ff6b00) !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.25) !important;
+}
+
+.hamburger-toggle-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-toggle-btn .bar {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    transition: var(--transition-smooth, all 0.3s ease);
+}
+
+/* 📐 Main Layout Container */
+.admin-main-container {
+    display: flex;
+    flex: 1;
+    position: relative;
+    width: 100%;
+}
+
+/* Sidebar Layout */
+.admin-sidebar {
+    width: 250px;
+    background-color: #080a0c;
+    border-right: 1px solid var(--border-color, #1c2126);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 0;
+    transition: var(--transition-smooth, all 0.3s ease);
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    padding: 0 20px 16px;
+    border-bottom: 1px dashed var(--border-color, #1c2126);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary, #98a2b3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar-close-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.sidebar-nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 16px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--text-secondary, #98a2b3);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: var(--transition-smooth, all 0.3s ease);
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: rgba(255, 107, 0, 0.05);
+    color: #ffffff;
+    border-left-color: var(--accent-color, #ff6b00);
+}
+
+.sidebar-footer {
+    padding: 16px 20px 0;
+    border-top: 1px dashed var(--border-color, #1c2126);
+    font-size: 10px;
+    color: var(--text-secondary, #98a2b3);
+}
+
+/* 💻 Content Body Fix (Removes White Area Bug) */
+.admin-content-body {
+    flex: 1;
+    background-color: var(--bg-primary, #0b0d0f) !important;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+/* Navigation Panel Visibility Controls */
+.dashboard-panel-section {
+    display: none;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+}
+
+.dashboard-panel-section.active-panel {
+    display: flex;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 900;
+    /* color: #ffffff !important; */
+    margin: 0;
+}
+
+.accent-text {
+    color: var(--accent-color, #ff6b00);
+}
+
+.last-sync {
+    font-size: 11px;
+    color: var(--text-secondary, #98a2b3);
+}
+
+/* Metrics Cards */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+}
+
+.metric-card {
+    background-color: #080a0c;
+    border: 1px solid var(--border-color, #1c2126);
+    padding: 20px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.card-label {
+    font-size: 11px;
+    color: var(--text-secondary, #98a2b3);
+}
+
+.card-value {
+    font-size: 28px;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.card-status.positive {
+    font-size: 10px;
+    color: #10b981;
+}
+
+/* Telemetry Table */
+.telemetry-table-card {
+    background-color: #080a0c;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 4px;
+    padding: 24px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed var(--border-color, #1c2126);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.status-pill.secure {
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.table-responsive-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.telemetry-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.telemetry-table th,
+.telemetry-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border-color, #1c2126);
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.telemetry-table th {
+    color: var(--text-secondary, #98a2b3);
+    font-size: 11px;
+}
+
+.badge-status {
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.badge-status.active {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.badge-status.warning {
+    color: var(--accent-color, #ff6b00);
+    background: rgba(255, 107, 0, 0.1);
+}
+
+/* 📱 Strict 768px Mobile Responsive Engine */
+@media (max-width: 768px) {
+    .hamburger-toggle-btn {
+        display: flex;
+    }
+
+    .sidebar-close-btn {
+        display: block;
+    }
+
+    .user-profile-badge {
+        display: none;
+    }
+
+    .admin-sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 260px;
+        height: 100vh;
+        z-index: 200;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .admin-sidebar.sidebar-open {
+        left: 0;
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 150;
+        display: none;
+    }
+
+    .sidebar-overlay.overlay-active {
+        display: block;
+    }
+
+    .admin-content-body {
+        padding: 20px 16px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 📱 Ultra-Narrow Screen Fix (Galaxy Z Fold 5 < 400px) */
+@media (max-width: 400px) {
+    .admin-topbar {
+        padding: 0 10px !important;
+    }
+
+    .brand-text {
+        font-size: 10px !important;
+    }
+
+    .page-title {
+        font-size: 18px !important;
+    }
+
+    .admin-content-body {
+        padding: 16px 8px !important;
+    }
+
+    .telemetry-table-card {
+        padding: 16px 10px !important;
+    }
+}
+
+
+
+
+
+
+
+/* -------------------------------------------------------------
+   TELEMETRY LOG CONSOLE STYLES & RESPONSIVE BREAKPOINTS
+------------------------------------------------------------- */
+
+.telemetry-console-card {
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Console Header Toolbar */
+.console-toolbar {
+    background-color: #0c0f12;
+    border-bottom: 1px solid var(--border-color, #1c2126);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.terminal-dots .dot.red { background-color: #ef4444; }
+.terminal-dots .dot.yellow { background-color: #f59e0b; }
+.terminal-dots .dot.green { background-color: #10b981; }
+
+.console-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary, #98a2b3);
+    letter-spacing: 1px;
+}
+
+.toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.console-filter-input {
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 2px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #ffffff;
+    outline: none;
+    transition: var(--transition-smooth, all 0.2s ease);
+}
+
+.console-filter-input:focus {
+    border-color: var(--accent-color, #ff6b00);
+}
+
+.live-badge {
+    font-size: 10px;
+    font-weight: 700;
+    color: #10b981;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 3px 8px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.live-badge i {
+    font-size: 6px;
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* Console Output Stream Box */
+.console-output-stream {
+    padding: 16px;
+    max-height: 380px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #050709;
+}
+
+.log-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 6px 10px;
+    border-radius: 2px;
+    background-color: rgba(255, 255, 255, 0.01);
+    border-left: 2px solid transparent;
+    transition: var(--transition-smooth, all 0.2s ease);
+}
+
+.log-entry:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.log-entry.info-level { border-left-color: #10b981; }
+.log-entry.warn-level { border-left-color: #f59e0b; }
+.log-entry.error-level { border-left-color: #ef4444; }
+
+.log-timestamp {
+    color: #667085;
+    white-space: nowrap;
+}
+
+.log-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+
+.tag-ok { color: #10b981; background-color: rgba(16, 185, 129, 0.12); }
+.tag-warn { color: #f59e0b; background-color: rgba(245, 158, 11, 0.12); }
+.tag-err { color: #ef4444; background-color: rgba(239, 68, 68, 0.12); }
+
+.log-source {
+    color: var(--accent-color, #ff6b00);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.log-msg {
+    color: #e2e8f0;
+    word-break: break-word;
+}
+
+/* Console Footer */
+.console-footer {
+    background-color: #0c0f12;
+    border-top: 1px solid var(--border-color, #1c2126);
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: var(--text-secondary, #98a2b3);
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.auto-scroll-toggle {
+    color: var(--accent-color, #ff6b00);
+    cursor: pointer;
+}
+
+/* 📱 Strict 768px Mobile Responsive Engine */
+@media (max-width: 768px) {
+    .console-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .toolbar-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .console-filter-input {
+        flex: 1;
+        max-width: 200px;
+    }
+
+    .log-entry {
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px;
+    }
+
+    .log-timestamp, .log-source {
+        font-size: 10px;
+    }
+
+    .console-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
+
+/* 📱 Ultra-Narrow Screen Fix (Galaxy Z Fold 5 Cover Screen < 400px) */
+@media (max-width: 400px) {
+    .telemetry-console-card {
+        border-radius: 2px;
+    }
+
+    .console-toolbar {
+        padding: 8px 10px !important;
+    }
+
+    .console-title {
+        font-size: 9px !important;
+    }
+
+    .console-filter-input {
+        font-size: 10px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .toolbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .console-output-stream {
+        padding: 10px !important;
+        max-height: 300px !important;
+    }
+
+    .log-entry {
+        font-size: 11px !important;
+    }
+}
+
+
+
+
+
+
+
+/* -------------------------------------------------------------
+   SYSTEM CONFIGURATION PANEL STYLES & BREAKPOINTS
+------------------------------------------------------------- */
+
+.config-settings-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.config-group-card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.config-idx {
+    color: var(--accent-color, #ff6b00);
+    font-size: 10px;
+}
+
+/* Fields Grid Layout */
+.config-fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.config-field-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.config-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary, #98a2b3);
+}
+
+/* Custom Interactive Select Buttons */
+.custom-toggle-select {
+    display: flex;
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 4px;
+    padding: 4px;
+    gap: 4px;
+}
+
+.toggle-option {
+    flex: 1;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary, #98a2b3);
+    padding: 8px 12px;
+    text-align: center;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: var(--transition-smooth, all 0.2s ease);
+}
+
+.toggle-option.active-option {
+    background-color: var(--accent-color, #ff6b00);
+    color: #ffffff;
+}
+
+/* Number Inputs with Units */
+.config-input-group {
+    display: flex;
+    align-items: center;
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.config-text-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: #ffffff;
+    outline: none;
+}
+
+.input-unit {
+    padding: 10px 14px;
+    background-color: #0c0f12;
+    border-left: 1px solid var(--border-color, #1c2126);
+    font-size: 11px;
+    color: var(--text-secondary, #98a2b3);
+}
+
+.config-readonly-tag {
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #10b981;
+}
+
+/* Toggle Switch Controls */
+.config-toggle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.config-toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: #050709;
+    border: 1px solid var(--border-color, #1c2126);
+    border-radius: 4px;
+    gap: 16px;
+}
+
+.toggle-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toggle-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.toggle-desc {
+    font-size: 11px;
+    color: var(--text-secondary, #98a2b3);
+}
+
+/* Custom CSS Switch */
+.switch-control {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.switch-control input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #1c2126;
+    transition: 0.3s;
+    border-radius: 22px;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #ffffff;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+input:checked + .switch-slider {
+    background-color: var(--accent-color, #ff6b00);
+}
+
+input:checked + .switch-slider:before {
+    transform: translateX(22px);
+}
+
+/* Action Controls */
+.config-actions-bar {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.config-save-btn {
+    background-color: var(--accent-color, #ff6b00) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-weight: 800;
+}
+
+.config-reset-btn {
+    padding: 12px 20px !important;
+    font-size: 11px !important;
+    color: var(--text-secondary, #98a2b3) !important;
+}
+
+/* 📱 Strict 768px Mobile Responsive Engine */
+@media (max-width: 768px) {
+    .config-fields-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .config-toggle-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .config-actions-bar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .config-save-btn,
+    .config-reset-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* 📱 Ultra-Narrow Screen Fix (Galaxy Z Fold 5 Cover Screen < 400px) */
+@media (max-width: 400px) {
+    .custom-toggle-select {
+        flex-direction: column;
+    }
+
+    .toggle-title {
+        font-size: 12px !important;
+    }
+
+    .toggle-desc {
+        font-size: 10px !important;
+    }
+
+    .config-readonly-tag {
+        font-size: 10px !important;
+    }
+}
+
+
+
+
+
+

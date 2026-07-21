@@ -1,0 +1,448 @@
+.auth-terminal-section {
+    background-color: var(--bg-primary);
+    padding: 120px 0;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    width: 100%;
+}
+
+.auth-terminal-dock {
+    position: relative;
+    background-color: #080a0c;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 64px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.auth-terminal-dock:hover {
+    border-color: #2b333a;
+}
+
+/* Dynamic Contracting Corner Brackets */
+.dock-bracket {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--text-secondary);
+    border-style: solid;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.bracket-tl {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+.bracket-tr {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+}
+
+.bracket-bl {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+}
+
+.bracket-br {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+.auth-terminal-dock:hover .dock-bracket {
+    border-color: var(--accent-color);
+}
+
+.auth-terminal-dock:hover .bracket-tl {
+    transform: translate(12px, 12px);
+}
+
+.auth-terminal-dock:hover .bracket-tr {
+    transform: translate(-12px, 12px);
+}
+
+.auth-terminal-dock:hover .bracket-bl {
+    transform: translate(12px, -12px);
+}
+
+.auth-terminal-dock:hover .bracket-br {
+    transform: translate(-12px, -12px);
+}
+
+.auth-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 64px;
+    align-items: flex-start;
+}
+
+.auth-info-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.info-system-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 107, 0, 0.08);
+    border: 1px solid rgba(255, 107, 0, 0.25);
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+}
+
+.status-ping {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+.tag-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent-color);
+}
+
+.auth-headline {
+    font-size: var(--fs-h2);
+    font-weight: 900;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.headline-accent {
+    color: var(--accent-color);
+}
+
+.auth-lead-text {
+    font-size: var(--fs-p);
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+/* Custom Navigation Tabs */
+.auth-tab-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+.tab-nav-btn {
+    background-color: #0f1317;
+    border: 1px solid #1c2229;
+    color: var(--text-secondary);
+    padding: 14px 20px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.tab-nav-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+}
+
+.tab-nav-btn.active-tab {
+    border-color: var(--accent-color);
+    background-color: rgba(255, 107, 0, 0.05);
+    color: #ffffff;
+}
+
+/* Dynamic Alert Feedback Box */
+.auth-alert-box {
+    margin-top: 24px;
+    padding: 14px 18px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    border-radius: 4px;
+    color: #ef4444;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.auth-alert-box.success-alert {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.4);
+    color: #10b981;
+}
+
+.auth-alert-box.hidden {
+    display: none;
+}
+
+/* Form Pane Visibility */
+.auth-form-pane {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form-pane.active-pane {
+    display: flex;
+}
+
+.pane-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1.5px;
+    border-bottom: 1px dashed #1c2229;
+    padding-bottom: 12px;
+}
+
+.pane-subtitle {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Custom Role Selection Matrix */
+.custom-selection-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.custom-method-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #0f1317;
+    border: 1px solid #1c2229;
+    padding: 12px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.custom-method-option.active-method {
+    border-color: var(--accent-color);
+    background-color: rgba(255, 107, 0, 0.05);
+}
+
+.option-index {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--accent-color);
+    background-color: #080a0c;
+    padding: 4px 6px;
+    border-radius: 2px;
+}
+
+.option-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    display: block;
+}
+
+.option-sub {
+    font-size: 10px;
+    color: var(--text-secondary);
+    display: block;
+}
+
+/* Form Inputs */
+.form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-matrix-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.form-technical-input {
+    width: 100%;
+    background-color: #0f1317;
+    border: 1px solid #1c2229;
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: #ffffff;
+    transition: var(--transition-smooth);
+}
+
+.form-technical-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #13181e;
+}
+
+.form-technical-input.invalid-input {
+    border-color: #ef4444;
+}
+
+.field-error-msg {
+    font-size: 11px;
+    color: #ef4444;
+}
+
+.form-submit-btn {
+    background-color: var(--accent-color) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+/* 📱 Strict 768px Responsive Architecture Fix */
+@media (max-width: 768px) {
+    .auth-terminal-section {
+        padding: 40px 15px; /* Added side padding to prevent touching screen edges */
+        width: 100%;
+        overflow-x: hidden; /* Prevents horizontal scrollbars */
+    }
+    
+    .auth-terminal-dock {
+        padding: 28px 16px; /* Reduced internal padding for smaller screens */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .auth-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        width: 100%;
+    }
+
+    /* 1. Fix Heading Text Overflow */
+    .auth-headline {
+        font-size: 1.65rem; /* Reduced font size so large words fit on one line */
+        line-height: 1.25;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    /* 2. Fix System Badge Overflow */
+    .info-system-badge {
+        max-width: 100%;
+        box-sizing: border-box;
+        flex-wrap: wrap; /* Allows text inside badge to wrap if screen is very narrow */
+    }
+
+    .tag-label {
+        font-size: 9px; /* Slightly reduced font size for tiny mobile viewports */
+        letter-spacing: 1px;
+    }
+
+    /* 3. Fix Button & Tab Width Overflow */
+    .auth-tab-navigation {
+        width: 100%;
+    }
+
+    .tab-nav-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .custom-selection-matrix {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .custom-method-option {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* 4. Fix Input Field & Textarea Overflow */
+    .form-input-wrapper {
+        width: 100%;
+    }
+
+    .form-technical-input,
+    .form-technical-textarea {
+        width: 100%;
+        box-sizing: border-box; /* Crucial: Ensures padding doesn't push width beyond 100% */
+    }
+
+    .form-matrix-label {
+        font-size: 10px;
+        word-break: break-word;
+    }
+
+    .form-submit-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Hide corner brackets on mobile to clean up border-edge alignment */
+    .dock-bracket {
+        display: none;
+    }
+}
+
+/* 📱 Ultra-Narrow / Galaxy Z Fold 5 Cover Screen Fix (< 400px) */
+@media (max-width: 400px) {
+    /* 1. Remove forced container margins/paddings that restrict width */
+    .container {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        width: 100% !important;
+    }
+
+    .auth-terminal-dock {
+        padding: 20px 12px !important; /* Tighten internal card padding */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Fluid typography for heading on ultra-narrow screens */
+    .auth-headline {
+        font-size: 1.35rem !important; /* Scale down title so "AUTHENTICATION" fits */
+        letter-spacing: -0.02em !important;
+        line-height: 1.2 !important;
+    }
+
+    /* 3. Wrap long badge tags */
+    .info-system-badge {
+        padding: 4px 8px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .tag-label {
+        font-size: 8px !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    /* 4. Force all input wrappers & buttons to fit tightly */
+    .form-input-wrapper,
+    .form-technical-input,
+    .form-submit-btn,
+    .tab-nav-btn {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .form-matrix-label {
+        font-size: 9px !important; /* Scale down input label headers */
+    }
+}
