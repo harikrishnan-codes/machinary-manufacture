@@ -83,8 +83,13 @@
 }
 
 @keyframes pipelineFlow {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(400%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(400%);
+    }
 }
 
 @media (max-width: 768px) {
@@ -92,11 +97,11 @@
         margin-bottom: 40px;
         padding: 0 16px;
     }
-    
+
     .section-headline {
         font-size: 1.75rem;
     }
-    
+
     .section-subtitle {
         letter-spacing: 2px;
     }
@@ -336,9 +341,20 @@
 }
 
 @keyframes beaconPulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5); }
-    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
 }
 
 .tag-label {
@@ -367,14 +383,36 @@
     animation: headlineCycle 12s infinite linear;
 }
 
-.dynamic-fade-item:nth-child(1) { animation-delay: 0s; }
-.dynamic-fade-item:nth-child(2) { animation-delay: 4s; }
-.dynamic-fade-item:nth-child(3) { animation-delay: 8s; }
+.dynamic-fade-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.dynamic-fade-item:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.dynamic-fade-item:nth-child(3) {
+    animation-delay: 8s;
+}
 
 @keyframes headlineCycle {
-    0%, 30% { opacity: 1; transform: translateY(0); }
-    33.33%, 96.66% { opacity: 0; transform: translateY(-15px); }
-    100% { opacity: 1; transform: translateY(0); }
+
+    0%,
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    33.33%,
+    96.66% {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-headline {
@@ -489,10 +527,25 @@
     line-height: 1;
 }
 
-.axis-tl { top: 6px; left: 8px; }
-.axis-tr { top: 6px; right: 8px; }
-.axis-bl { bottom: 6px; left: 8px; }
-.axis-br { bottom: 6px; right: 8px; }
+.axis-tl {
+    top: 6px;
+    left: 8px;
+}
+
+.axis-tr {
+    top: 6px;
+    right: 8px;
+}
+
+.axis-bl {
+    bottom: 6px;
+    left: 8px;
+}
+
+.axis-br {
+    bottom: 6px;
+    right: 8px;
+}
 
 .visual-canvas {
     width: 100%;
@@ -519,8 +572,13 @@
 }
 
 @keyframes gearRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .blueprint-model-tag {
@@ -559,7 +617,7 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     .animated-headline-carousel {
         height: 100px;
         width: 100%;
@@ -866,7 +924,7 @@
 
 .dark-button-fix:hover {
     background-color: #1a1a1a !important;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2) !important;
 }
 
 .light-border-fix {
@@ -1040,10 +1098,25 @@
     line-height: 1;
 }
 
-.corner-tl { top: 6px; left: 8px; }
-.corner-tr { top: 6px; right: 8px; }
-.console-corner.corner-bl { bottom: 6px; left: 8px; }
-.console-corner.corner-br { bottom: 6px; right: 8px; }
+.corner-tl {
+    top: 6px;
+    left: 8px;
+}
+
+.corner-tr {
+    top: 6px;
+    right: 8px;
+}
+
+.console-corner.corner-bl {
+    bottom: 6px;
+    left: 8px;
+}
+
+.console-corner.corner-br {
+    bottom: 6px;
+    right: 8px;
+}
 
 .console-grid-header {
     display: flex;
@@ -1189,7 +1262,7 @@
         gap: 6px;
         text-align: left;
     }
-    
+
     .row-value-tag {
         width: fit-content;
     }
@@ -1262,10 +1335,25 @@
     line-height: 1;
 }
 
-.blueprint-graphic-frame .axis-tl { top: 6px; left: 8px; }
-.blueprint-graphic-frame .axis-tr { top: 6px; right: 8px; }
-.blueprint-graphic-frame .axis-bl { bottom: 6px; left: 8px; }
-.blueprint-graphic-frame .axis-br { bottom: 6px; right: 8px; }
+.blueprint-graphic-frame .axis-tl {
+    top: 6px;
+    left: 8px;
+}
+
+.blueprint-graphic-frame .axis-tr {
+    top: 6px;
+    right: 8px;
+}
+
+.blueprint-graphic-frame .axis-bl {
+    bottom: 6px;
+    left: 8px;
+}
+
+.blueprint-graphic-frame .axis-br {
+    bottom: 6px;
+    right: 8px;
+}
 
 .graphic-canvas {
     width: 100%;
@@ -1400,7 +1488,7 @@
     .spec-row {
         padding: 20px 8px;
     }
-    
+
     .spec-row:hover {
         padding-left: 12px;
         padding-right: 4px;
@@ -1470,10 +1558,25 @@
     line-height: 1;
 }
 
-.tick-tl { top: 8px; left: 10px; }
-.tick-tr { top: 8px; right: 10px; }
-.tick-bl { bottom: 8px; left: 10px; }
-.tick-br { bottom: 8px; right: 10px; }
+.tick-tl {
+    top: 8px;
+    left: 10px;
+}
+
+.tick-tr {
+    top: 8px;
+    right: 10px;
+}
+
+.tick-bl {
+    bottom: 8px;
+    left: 10px;
+}
+
+.tick-br {
+    bottom: 8px;
+    right: 10px;
+}
 
 .insight-serial-tag {
     font-family: var(--font-mono);
@@ -1586,7 +1689,7 @@
 .matrix-blueprint-grid {
     position: absolute;
     inset: 0;
-    background-image: 
+    background-image:
         linear-gradient(to right, rgba(255, 107, 0, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 107, 0, 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
@@ -1706,8 +1809,15 @@
     line-height: 1;
 }
 
-.tr-tick { top: 8px; right: 10px; }
-.bl-tick { bottom: 8px; left: 10px; }
+.tr-tick {
+    top: 8px;
+    right: 10px;
+}
+
+.bl-tick {
+    bottom: 8px;
+    left: 10px;
+}
 
 .testimonial-skew-card:hover .card-corner-tick {
     color: var(--accent-color);
@@ -1841,7 +1951,7 @@
 
 .cta-left-panel {
     padding: 64px;
-    background-image: 
+    background-image:
         radial-gradient(var(--border-color) 1px, transparent 1px),
         radial-gradient(var(--border-color) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -1897,10 +2007,25 @@
     line-height: 1;
 }
 
-.cta-right-panel .structural-tl { top: 12px; left: 14px; }
-.cta-right-panel .structural-tr { top: 12px; right: 14px; }
-.cta-right-panel .structural-bl { bottom: 12px; left: 14px; }
-.cta-right-panel .structural-br { bottom: 12px; right: 14px; }
+.cta-right-panel .structural-tl {
+    top: 12px;
+    left: 14px;
+}
+
+.cta-right-panel .structural-tr {
+    top: 12px;
+    right: 14px;
+}
+
+.cta-right-panel .structural-bl {
+    bottom: 12px;
+    left: 14px;
+}
+
+.cta-right-panel .structural-br {
+    bottom: 12px;
+    right: 14px;
+}
 
 .configurator-title {
     font-size: 18px;
@@ -1974,7 +2099,7 @@
         border-top: 1px solid var(--border-color);
         text-align: center;
     }
-    
+
     .configurator-actions {
         gap: 12px;
     }

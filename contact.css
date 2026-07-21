@@ -146,10 +146,25 @@
     transition: var(--transition-smooth);
 }
 
-.b-tl { top: 8px; left: 10px; }
-.b-tr { top: 8px; right: 10px; }
-.b-bl { bottom: 8px; left: 10px; }
-.b-br { bottom: 8px; right: 10px; }
+.b-tl {
+    top: 8px;
+    left: 10px;
+}
+
+.b-tr {
+    top: 8px;
+    right: 10px;
+}
+
+.b-bl {
+    bottom: 8px;
+    left: 10px;
+}
+
+.b-br {
+    bottom: 8px;
+    right: 10px;
+}
 
 .contact-specs-box:hover .box-crosshair {
     color: var(--accent-color);
@@ -269,7 +284,7 @@
     .contact-specs-box {
         padding: 28px 20px;
     }
-    
+
     .box-spec-row {
         grid-template-columns: 1fr;
         gap: 8px;
@@ -320,20 +335,50 @@
     z-index: 5;
 }
 
-.bracket-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
-.bracket-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
-.bracket-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
-.bracket-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.bracket-tl {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+.bracket-tr {
+    top: -1px;
+    right: -1px;
+    border-width: 2px 2px 0 0;
+}
+
+.bracket-bl {
+    bottom: -1px;
+    left: -1px;
+    border-width: 0 0 2px 2px;
+}
+
+.bracket-br {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+}
 
 /* Brackets compress inward and illuminate green/orange on matrix frame mouseover */
 .integration-terminal-dock:hover .dock-bracket {
     border-color: var(--accent-color);
 }
 
-.integration-terminal-dock:hover .bracket-tl { transform: translate(12px, 12px); }
-.integration-terminal-dock:hover .bracket-tr { transform: translate(-12px, 12px); }
-.integration-terminal-dock:hover .bracket-bl { transform: translate(12px, -12px); }
-.integration-terminal-dock:hover .bracket-br { transform: translate(-12px, -12px); }
+.integration-terminal-dock:hover .bracket-tl {
+    transform: translate(12px, 12px);
+}
+
+.integration-terminal-dock:hover .bracket-tr {
+    transform: translate(-12px, 12px);
+}
+
+.integration-terminal-dock:hover .bracket-bl {
+    transform: translate(12px, -12px);
+}
+
+.integration-terminal-dock:hover .bracket-br {
+    transform: translate(-12px, -12px);
+}
 
 .integration-grid-layout {
     display: grid;
@@ -369,9 +414,20 @@
 }
 
 @keyframes integrationPing {
-    0% { transform: scale(0.9); opacity: 0.4; }
-    50% { transform: scale(1.3); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.4; }
+    0% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.4;
+    }
 }
 
 .tag-label {
@@ -607,7 +663,8 @@
     }
 
     .integration-step-matrix {
-        display: none; /* Strip step paths to balance narrow vertical space */
+        display: none;
+        /* Strip step paths to balance narrow vertical space */
     }
 
     .form-fields-row {
@@ -627,10 +684,62 @@
     .integration-terminal-dock:hover .dock-bracket {
         border-color: var(--accent-color);
     }
-    .integration-terminal-dock:hover .bracket-tl { transform: translate(6px, 6px); }
-    .integration-terminal-dock:hover .bracket-tr { transform: translate(-6px, 6px); }
-    .integration-terminal-dock:hover .bracket-bl { transform: translate(6px, -6px); }
-    .integration-terminal-dock:hover .bracket-br { transform: translate(-6px, -6px); }
+
+    .integration-terminal-dock:hover .bracket-tl {
+        transform: translate(6px, 6px);
+    }
+
+    .integration-terminal-dock:hover .bracket-tr {
+        transform: translate(-6px, 6px);
+    }
+
+    .integration-terminal-dock:hover .bracket-bl {
+        transform: translate(6px, -6px);
+    }
+
+    .integration-terminal-dock:hover .bracket-br {
+        transform: translate(-6px, -6px);
+    }
+}
+
+/* -------------------------------------------------------------
+   CONTACT FORM VALIDATION & ALERT STYLES
+------------------------------------------------------------- */
+
+/* Field Level Error Text */
+.field-error-msg {
+    font-size: 11px;
+    color: #ef4444;
+    min-height: 14px;
+    margin-top: 2px;
+}
+
+/* Terminal Alert Box Header */
+.contact-alert-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 4px;
+    color: #ef4444;
+    font-size: 12px;
+    transition: var(--transition-smooth, all 0.3s ease);
+}
+
+.contact-alert-box.hidden {
+    display: none;
+}
+
+.contact-alert-box.success-alert {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-color: rgba(16, 185, 129, 0.3);
+    color: #10b981;
+}
+
+.alert-icon {
+    font-size: 14px;
 }
 
 
@@ -786,7 +895,8 @@
     }
 
     .terminal-node-cell:hover {
-        transform: none; /* Strip layout displacements for small touch viewports */
+        transform: none;
+        /* Strip layout displacements for small touch viewports */
     }
 }
 
@@ -990,9 +1100,20 @@
 }
 
 @keyframes ctaNodePing {
-    0% { transform: scale(0.95); opacity: 0.5; }
-    50% { transform: scale(1.3); opacity: 1; }
-    100% { transform: scale(0.95); opacity: 0.5; }
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
 }
 
 .node-lbl {
@@ -1085,10 +1206,25 @@
     transition: var(--transition-smooth);
 }
 
-.c-tl { top: 8px; left: 10px; }
-.c-tr { top: 8px; right: 10px; }
-.c-bl { bottom: 8px; left: 10px; }
-.c-br { bottom: 8px; right: 10px; }
+.c-tl {
+    top: 8px;
+    left: 10px;
+}
+
+.c-tr {
+    top: 8px;
+    right: 10px;
+}
+
+.c-bl {
+    bottom: 8px;
+    left: 10px;
+}
+
+.c-br {
+    bottom: 8px;
+    right: 10px;
+}
 
 .telemetry-hud-card:hover .hud-crosshair {
     color: var(--accent-color);
