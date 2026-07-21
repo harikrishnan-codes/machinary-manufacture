@@ -1,21 +1,29 @@
 :root {
     /* Color Palette - Light Industrial Variant */
-    --bg-primary: #ffffff;          /* Clean white canvas */
-    --bg-secondary: #f7f9fa;        /* Light metallic/stone gray for structural backgrounds */
-    --bg-tertiary: #edf0f2;         /* Slightly deeper gray for borders, cards, and dividers */
-    
+    --bg-primary: #ffffff;
+    /* Clean white canvas */
+    --bg-secondary: #f7f9fa;
+    /* Light metallic/stone gray for structural backgrounds */
+    --bg-tertiary: #edf0f2;
+    /* Slightly deeper gray for borders, cards, and dividers */
+
     /* Typography Colors */
-    --text-primary: #000000;        /* Deep black for high-contrast titles */
-    --text-secondary: #4a545e;      /* Muted slate gray for readable body copy */
-    
+    --text-primary: #000000;
+    /* Deep black for high-contrast titles */
+    --text-secondary: #4a545e;
+    /* Muted slate gray for readable body copy */
+
     /* Brand Accent */
-    --accent-color: #ff6b00;        /* Industrial Engineering Orange */
+    --accent-color: #ff6b00;
+    /* Industrial Engineering Orange */
     --accent-glow: rgba(255, 107, 0, 0.15);
-    --border-color: #d1d8db;        /* Precision layout grid lines */
+    --border-color: #d1d8db;
+    /* Precision layout grid lines */
 
     /* Typography Settings */
     --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-    --font-mono: 'JetBrains Mono', 'SF Mono', monospace; /* Perfect for spec sheets and technical values */
+    --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+    /* Perfect for spec sheets and technical values */
 
     /* Typography Scales */
     --fs-h1: 2.75rem;
@@ -38,15 +46,19 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
     height: 100%;
-    overflow-y: scroll; /* Forces a single, native browser-level scroll track */
+    overflow-y: scroll;
+    /* Forces a single, native browser-level scroll track */
 }
 
 body {
     background-color: var(--bg-primary);
+    overflow-x: hidden;
     color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: var(--lh-body); /* Updated to use your defined body line-height variable */
+    line-height: var(--lh-body);
+    /* Updated to use your defined body line-height variable */
     -webkit-font-smoothing: antialiased;
 }
 
@@ -58,22 +70,37 @@ body {
 }
 
 /* --- Typography Core Bindings --- */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--text-primary); /* FIXED: Changed from --text-main to valid variable */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    /* FIXED: Changed from --text-main to valid variable */
     font-weight: 700;
     line-height: var(--lh-heading);
     letter-spacing: -0.02em;
     margin-bottom: 1rem;
 }
 
-h1 { font-size: var(--fs-h1); }
-h2 { font-size: var(--fs-h2); }
-h3 { font-size: var(--fs-h3); }
+h1 {
+    font-size: var(--fs-h1);
+}
 
-p { 
-    font-size: var(--fs-p); 
-    margin-bottom: 1rem; 
-    color: var(--text-secondary); /* FIXED: Changed from --text-muted to valid variable */
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+}
+
+p {
+    font-size: var(--fs-p);
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    /* FIXED: Changed from --text-muted to valid variable */
 }
 
 a {
@@ -82,8 +109,8 @@ a {
     transition: var(--transition-smooth);
 }
 
-ul { 
-    list-style: none; 
+ul {
+    list-style: none;
 }
 
 /* ==========================================
@@ -112,11 +139,13 @@ ul {
 /* Primary Button: High-visibility Orange Accent */
 .btn-primary {
     background-color: var(--accent-color);
-    color: #ffffff; /* Stark white text on orange for accessibility */
+    color: #ffffff;
+    /* Stark white text on orange for accessibility */
 }
 
 .btn-primary:hover {
-    background-color: #e05e00; /* Deepened orange value on interaction */
+    background-color: #e05e00;
+    /* Deepened orange value on interaction */
     transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--accent-glow);
 }
@@ -128,13 +157,15 @@ ul {
 /* Secondary Button: Clean Structured Wireframe */
 .btn-secondary {
     background-color: transparent;
-    border-color: var(--text-primary); /* Bold black border */
+    border-color: var(--text-primary);
+    /* Bold black border */
     color: var(--text-primary);
 }
 
 .btn-secondary:hover {
     background-color: var(--text-primary);
-    color: var(--bg-primary); /* Inverts cleanly to white text on black background */
+    color: var(--bg-primary);
+    /* Inverts cleanly to white text on black background */
     transform: translateY(-2px);
 }
 
