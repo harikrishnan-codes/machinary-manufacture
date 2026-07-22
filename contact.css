@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------
-   CONTACT HERO SECTION - STRICT ROOT VARIABLES DESIGN SYSTEM
+   CONTACT HERO SECTION - STRICT ROOT VARIABLES & MOBILE ENGINE
 ------------------------------------------------------------- */
 
 .contact-specs-hero {
@@ -12,6 +12,7 @@
     min-height: 75vh;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* Minimalist engineering background canvas layer */
@@ -32,12 +33,14 @@
     position: relative;
     z-index: 5;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-specs-content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .contact-specs-badge {
@@ -49,6 +52,7 @@
     padding: 8px 16px;
     border-radius: 4px;
     margin-bottom: 28px;
+    box-sizing: border-box;
 }
 
 .contact-specs-bullet {
@@ -74,6 +78,7 @@
     letter-spacing: -0.03em;
     color: var(--text-primary);
     margin-bottom: 24px;
+    word-break: break-word; /* Prevents text overflow */
 }
 
 .contact-specs-stroke {
@@ -122,6 +127,10 @@
 }
 
 /* 📊 Asymmetric Spec Dashboard Box Layer */
+.contact-specs-aside {
+    width: 100%;
+}
+
 .contact-specs-box {
     position: relative;
     background-color: var(--bg-secondary);
@@ -129,6 +138,8 @@
     padding: 40px;
     border-radius: 4px;
     transition: var(--transition-smooth);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .contact-specs-box:hover {
@@ -146,25 +157,10 @@
     transition: var(--transition-smooth);
 }
 
-.b-tl {
-    top: 8px;
-    left: 10px;
-}
-
-.b-tr {
-    top: 8px;
-    right: 10px;
-}
-
-.b-bl {
-    bottom: 8px;
-    left: 10px;
-}
-
-.b-br {
-    bottom: 8px;
-    right: 10px;
-}
+.b-tl { top: 8px; left: 10px; }
+.b-tr { top: 8px; right: 10px; }
+.b-bl { bottom: 8px; left: 10px; }
+.b-br { bottom: 8px; right: 10px; }
 
 .contact-specs-box:hover .box-crosshair {
     color: var(--accent-color);
@@ -185,6 +181,7 @@
     flex-direction: column;
     gap: 14px;
     margin-bottom: 28px;
+    width: 100%;
 }
 
 .box-spec-row {
@@ -197,6 +194,8 @@
     border: 1px solid var(--border-color);
     border-radius: 4px;
     transition: var(--transition-smooth);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .box-spec-row:hover {
@@ -246,53 +245,97 @@
     letter-spacing: 0.5px;
 }
 
-/* 📱 Strict 768px Responsive Engineering Core */
+/* -------------------------------------------------------------
+   📱 STRICT 768px MOBILE RESPONSIVE CENTERING ENGINE
+------------------------------------------------------------- */
 @media (max-width: 768px) {
     .contact-specs-hero {
-        padding: 120px 0 60px 0;
+        padding: 100px 16px 60px 16px !important;
         min-height: auto;
     }
 
     .contact-specs-container {
-        grid-template-columns: 1fr;
-        gap: 48px;
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        justify-items: center !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 auto !important;
     }
 
     .contact-specs-content {
-        align-items: center;
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .contact-specs-badge {
+        max-width: 100%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .contact-specs-badge-txt {
+        font-size: 9px !important; /* Scaled down for narrow screens */
+        letter-spacing: 1px !important;
     }
 
     .contact-specs-title {
-        font-size: 2.5rem;
+        font-size: 1.85rem !important; /* Scaled down to prevent overflow */
+        line-height: 1.2 !important;
+        word-break: break-word !important;
+    }
+
+    .contact-specs-stroke {
+        -webkit-text-stroke: 1px var(--text-primary) !important;
     }
 
     .contact-specs-lead {
-        max-width: 100%;
+        font-size: 0.95rem !important;
+        max-width: 100% !important;
+        margin-bottom: 28px !important;
     }
 
     .contact-specs-actions {
-        flex-direction: column;
-        gap: 12px;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
     }
 
     .contact-specs-actions .btn {
-        width: 100%;
-        justify-content: center;
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .contact-specs-aside {
+        width: 100% !important;
     }
 
     .contact-specs-box {
-        padding: 28px 20px;
+        padding: 24px 16px !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .box-specs-heading {
+        text-align: center !important;
     }
 
     .box-spec-row {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: 1fr !important;
+        gap: 6px !important;
+        text-align: center !important;
+        justify-items: center !important;
+        padding: 10px !important;
+    }
+
+    .footer-readout {
+        font-size: 9px !important;
+        display: block;
         text-align: center;
-        justify-items: center;
     }
 }
-
 
 
 
